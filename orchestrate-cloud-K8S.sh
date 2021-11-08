@@ -187,5 +187,32 @@ curl -k https://<EXTERNAL_IP>:31000
 # curl -k https://34.68.184.215:31000 {"message":"Hello"}
 
 
+#######################################################
+###         Deploying Applications with Kubernetes
+#######################################################
+
+# Goal:scaling and managing containers in production
+
+    # break the monolith app into three separate pieces:
+        # auth - Generates JWT tokens for authenticated users.
+        # hello - Greet authenticated users.
+        # frontend - Routes traffic to the auth and hello services.
+cat deployments/auth.yaml
+
+#  create deployment for AUTH
+kubectl create -f deployments/auth.yaml
+# create service for AUTH
+kubectl create -f services/auth.yaml
+
+#  create deployment for Hello
+kubectl create -f deployments/hello.yaml
+# create service for Hello
+kubectl create -f services/hello.yaml
+
+#  create and expose the frontend Deployment.
+kubectl create configmap nginx-frontend-conf --from-file=nginx/frontend.conf
+kubectl create -f deployments/frontend.yaml
+kubectl create -f services/frontend.yaml
 
 
+curl -k https://<EXTERNAL-IP>
