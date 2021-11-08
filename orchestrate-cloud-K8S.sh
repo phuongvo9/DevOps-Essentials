@@ -119,7 +119,72 @@ kubectl exec monolith --stdin --tty -c monolith /bin/sh
 
 
 
+##################################################
+###         SERVICES
+##################################################
 
+
+# What happens if you want to communicate with a set of Pods? When they get restarted they might have a different IP address.
+# Services solves this problem - Providing stable endpoints for Pods
+
+
+##################################################
+###         SERVICES - # Creating a Service
+##################################################
+
+cd ~/orchestrate-with-kubernetes/kubernetes
+cat pods/secure-monolith.yaml
+
+# Create the secure-monolith pods and their configuration data
+kubectl create secret generic tls-certs --from-file tls/
+kubectl create configmap nginx-proxy-conf --from-file nginx/proxy.conf
+kubectl create -f pods/secure-monolith.yaml
+
+cat services/monolith.yaml
+
+# TAKES NOTES
+    # There's a selector which is used to automatically find and expose any pods with the labels app: monolith and secure: enabled.
+    # Now you have to expose the nodeport here because this is how you'll forward external traffic from port 31000 to nginx (on port 443).
+kubectl create -f services/monolith.yaml
+
+# To allow traffic to the monolith service on the exposed nodeport:
+
+gcloud compute firewall-rules create allow-monolith-nodeport \
+  --allow=tcp:31000
+
+# First, get an external IP address for one of the nodes.
+gcloud compute instances list
+#  Try hitting the secure-monolith service using curl:
+
+curl -k https://34.68.184.215:31000
+
+### ERROR curl: (7) Failed to connect to 34.68.184.215 port 31000: Connection refused
+
+## ERROR on Labels
+
+
+##################################################
+###         Adding Labels to Pods
+##################################################
+
+# Currently the monolith service does not have endpoints. One way to troubleshoot an issue like this is to use the kubectl get pods command with a label query.
+
+    # few pods running with the monolith label.
+kubectl get pods -l "app=monolith"
+    # "app=monolith" and "secure=enabled"??? - Nothing
+kubectl get pods -l "app=monolith,secure=enabled"
+
+# It seems like I need to add the "secure=enabled" label to them.
+
+kubectl label pods secure-monolith 'secure=enabled'
+kubectl get pods secure-monolith --show-labels
+
+# View the list of endpoints on the monolith service
+kubectl describe services monolith | grep Endpoints
+
+gcloud compute instances list
+curl -k https://<EXTERNAL_IP>:31000
+# curl -k https://34.68.184.215:31000 {"message":"Hello"}
 
 
 
