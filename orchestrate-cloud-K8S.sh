@@ -65,6 +65,42 @@ cat pods/monolith.yaml
 
 kubectl create -f pods/monolith.yaml
 
+# Examine your pods
+kubectl get pods
+
+# get more information about the monolith pod:
+kubectl describe pods monolith
+
+
+##################################################
+###         Interacting with Pods
+##################################################
+
+# By default, pods are allocated a private IP address and cannot be reached outside of the cluster.
+#  Use the kubectl port-forward command to map a local port to a port inside the monolith pod.
+
+
+# In 2nd Terminal
+
+kubectl port-forward monolith 10080:80
+
+
+# In 1st Terminal
+curl http://127.0.0.1:10080
+
+# Hit a secure endpoint
+curl http://127.0.0.1:10080/secure
+
+# Try logging in to get auth token from monolith
+curl -u user http://127.0.0.1:10080/login
+
+#OUTPUT: //127.0.0.1:10080/login Enter host password for user 'user':
+
+# Logging in caused a JWT token to print out. Since Cloud Shell does not handle copying long strings well, create an environment variable for the token.
+TOKEN=$(curl http://127.0.0.1:10080/login -u user|jq -r '.token')
+
+
+
 
 
 
