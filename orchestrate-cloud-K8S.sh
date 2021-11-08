@@ -99,6 +99,26 @@ curl -u user http://127.0.0.1:10080/login
 # Logging in caused a JWT token to print out. Since Cloud Shell does not handle copying long strings well, create an environment variable for the token.
 TOKEN=$(curl http://127.0.0.1:10080/login -u user|jq -r '.token')
 
+# Copy and then use token to hit the secure endpoint
+
+curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:10080/secure
+
+# Open a 3rd terminal and use the -f flag to get a stream of the logs happening in real-time:
+kubectl logs -f monolith
+
+
+# Use the kubectl exec command to run an interactive shell inside the Monolith Pod
+# Troubleshoot from within a container
+
+kubectl exec monolith --stdin --tty -c monolith /bin/sh
+
+    # test external connectivity
+    ping -c 3 google.com
+    exit
+
+
+
+
 
 
 
