@@ -114,3 +114,86 @@ kubectl get pods -o jsonpath --template='{range .items[*]}{.metadata.name}{"\t"}
 #A canary deployment consists of a separate deployment with your new version `
 #and a service that targets both your normal, stable deployment as well as your canary deployment.
 
+# Create a new canary deployment for new version
+
+cat deployments/hello-canary.yaml
+
+kubectl create -f deployments/hello-canary.yaml
+
+kubectl get deployments
+
+
+###
+### Blue-green deployments
+###
+
+kubectl apply -f services/hello-blue.yaml
+
+
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: hello-green
+# spec:
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: hello
+#   template:
+#     metadata:
+#       labels:
+#         app: hello
+#         track: stable
+#         version: 2.0.0
+#     spec:
+#       containers:
+#         - name: hello
+#           image: kelseyhightower/hello:2.0.0
+#           ports:
+#             - name: http
+#               containerPort: 80
+#             - name: health
+#               containerPort: 81
+#           resources:
+#             limits:
+#               cpu: 0.2
+#               memory: 10Mi
+#           livenessProbe:
+#             httpGet:
+#               path: /healthz
+#               port: 81
+#               scheme: HTTP
+#             initialDelaySeconds: 5
+#             periodSeconds: 15
+#             timeoutSeconds: 5
+#           readinessProbe:
+#             httpGet:
+#               path: /readiness
+#               port: 81
+#               scheme: HTTP
+#             initialDelaySeconds: 5
+#             timeoutSeconds: 1
+
+kubectl create -f deployments/hello-green.yaml
+
+curl -ks https://`kubectl get svc frontend -o=jsonpath="{.status.loadBalancer.ingress[0].ip}"`/version
+
+kubectl apply -f services/hello-green.yaml
+
+curl -ks https://`kubectl get svc frontend -o=jsonpath="{.status.loadBalancer.ingress[0].ip}"`/version
+
+###
+### Blue-green Rollback
+###
+
+
+
+kubectl apply -f services/hello-blue.yaml
+curl -ks https://`kubectl get svc frontend -o=jsonpath="{.status.loadBalancer.ingress[0].ip}"`/version
+
+
+
+
+
+
+
