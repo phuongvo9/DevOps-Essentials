@@ -107,4 +107,27 @@ export FRONTEND_SERVICE_IP=$(kubectl get -o jsonpath="{.status.loadBalancer.ingr
 curl http://$FRONTEND_SERVICE_IP/version
 
 
+######################################################
+############################ Creating the Jenkins Pipeline
+###########################
+    # Create a copy of the gceme sample app and push it to a Cloud Source Repository:
+gcloud source repos create default
 
+
+git init
+#Initialize the sample-app directory as its own Git repository:
+git config credential.helper gcloud.sh
+
+git remote add origin https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/default
+
+
+
+git config --global user.email "huyphuong4116@gmail.com"
+git config --global user.name "phuongvo9"
+git add .
+git commit -m "Initial commit"
+git push origin master
+
+# Adding your service account credentials
+
+# TBD
