@@ -32,3 +32,15 @@ kubectl apply -f k8s/services -n production
 
 kubectl get svc
 kubectl get service gceme-frontend -n production
+
+
+#
+
+git init
+git config credential.helper gcloud.sh
+git remote add origin https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
+git config --global user.email "<user email>"
+git config --global user.name "<user name>"
+git add .
+git commit -m "initial commit"
+git push origin master
