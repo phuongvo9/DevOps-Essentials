@@ -23,3 +23,12 @@ kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 
 
+#
+cd sample-app
+kubectl create ns production
+kubectl apply -f k8s/production -n production
+kubectl apply -f k8s/canary -n production
+kubectl apply -f k8s/services -n production
+
+kubectl get svc
+kubectl get service gceme-frontend -n production
