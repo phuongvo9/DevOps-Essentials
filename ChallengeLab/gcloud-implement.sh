@@ -44,3 +44,31 @@ git config --global user.name "<user name>"
 git add .
 git commit -m "initial commit"
 git push origin master
+
+# Deploy canary - then merge to production
+git checkout -b new-feature
+
+git add Jenkinsfile html.go main.go
+git commit -m "Version 2.0.0"
+git push origin new-feature
+
+curl http://localhost:8001/api/v1/namespaces/new-feature/services/gceme-frontend:80/proxy/version
+kubectl get service gceme-frontend -n production
+git checkout -b canary
+git push origin canary
+export FRONTEND_SERVICE_IP=$(kubectl get -o \
+jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
+git checkout master
+git push origin master
+
+
+export FRONTEND_SERVICE_IP=$(kubectl get -o \
+jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
+while true; do curl http://$FRONTEND_SERVICE_IP/version; sleep 1; done
+
+kubectl get service gceme-frontend -n production
+
+git merge canary
+git push origin master
+export FRONTEND_SERVICE_IP=$(kubectl get -o \
+jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
