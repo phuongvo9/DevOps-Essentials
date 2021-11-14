@@ -39,8 +39,8 @@ kubectl get service gceme-frontend -n production
 git init
 git config credential.helper gcloud.sh
 git remote add origin https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
-git config --global user.email "<user email>"
-git config --global user.name "<user name>"
+git config --global user.email "student-00-4dbe72470e45@qwiklabs.net"
+git config --global user.name "student 239516ae"
 git add .
 git commit -m "initial commit"
 git push origin master
