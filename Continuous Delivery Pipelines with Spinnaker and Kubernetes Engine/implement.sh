@@ -1,14 +1,14 @@
-# Set up your environment by launching Google Cloud Shell, creating a Kubernetes Engine cluster, and configuring your identity and user management scheme.
+# Set up our environment by launching Google Cloud Shell, creating a Kubernetes Engine cluster, and configuring our identity and user management scheme.
 
 # Download a sample application, create a Git repository then upload it to a Google Cloud Source Repository.
 
 # Deploy Spinnaker to Kubernetes Engine using Helm.
 
-# Build your Docker image.
+# Build our Docker image.
 
-# Create triggers to create Docker images when your application changes.
+# Create triggers to create Docker images when our application changes.
 
-# Configure a Spinnaker pipeline to reliably and continuously deploy your application to Kubernetes Engine.
+# Configure a Spinnaker pipeline to reliably and continuously deploy our application to Kubernetes Engine.
 
 # Deploy a code change, triggering the pipeline, and watch it roll out to production.
 
@@ -152,7 +152,7 @@ kubectl port-forward --namespace default $DECK_POD 8080:9000 >> /dev/null &
 
 
 
-#-------------Create your source code repository-----------------
+#-------------Create our source code repository-----------------
 gsutil -m cp -r gs://spls/gsp114/sample-app.tar .
 mkdir sample-app
 # Unpack the source code
@@ -172,12 +172,63 @@ git commit -m "Initial commit"
 gcloud source repos create sample-app
 git config credential.helper gcloud.sh
 
-# Add your newly created repository as remote
+# Add our newly created repository as remote
 
 export PROJECT=$(gcloud info --format='value(config.project)')
 git remote add origin https://source.developers.google.com/p/$PROJECT/r/sample-app
 
 
-# Push your code to the new repository's master branch:
+# Push our code to the new repository's master branch:
 
 git push origin master
+
+#-------------Configure the build triggers----------------
+    #Configure Container Builder to build and push our Docker images every time you push Git tags to our source repository
+
+
+
+# GC console GUI > Cloud Build > Triggers.
+
+
+#-----------------Prepare your Kubernetes Manifests for use in Spinnaker----------
+
+# Create the bucket
+export PROJECT=$(gcloud info --format='value(config.project)')
+gsutil mb -l us-central1 gs://$PROJECT-kubernetes-manifests
+
+# Enable versioning on the bucket so that you have a history of your manifests
+
+gsutil versioning set on gs://$PROJECT-kubernetes-manifests
+
+# Set the correct project ID in your kubernetes deployment manifests
+sed -i s/PROJECT/$PROJECT/g k8s/deployments/*
+
+# Commit the changes to the repository
+git commit -a -m "Set project ID"
+
+
+# ------------------- Build your image ------------------------
+git tag v1.0.0
+git push --tags
+
+# ------------------Configuring your deployment pipelines--------------
+# Install the spin CLI for managing Spinnaker
+curl -LO https://storage.googleapis.com/spinnaker-artifacts/spin/1.14.0/linux/amd64/spin
+chmod +x spin
+# Create the deployment pipeline
+
+./spin application save --application-name sample \
+                        --owner-email "$(gcloud config get-value core/account)" \
+                        --cloud-providers kubernetes \
+                        --gate-endpoint http://localhost:8080/gate
+
+#  upload an example pipeline to your Spinnaker instance
+export PROJECT=$(gcloud info --format='value(config.project)')
+sed s/PROJECT/$PROJECT/g spinnaker/pipeline-deploy.json > pipeline.json
+./spin pipeline save --gate-endpoint http://localhost:8080/gate -f pipeline.json
+
+# Output: Pipeline save succeeded
+
+# ------------------- Manually Trigger and View your pipeline execution
+
+
