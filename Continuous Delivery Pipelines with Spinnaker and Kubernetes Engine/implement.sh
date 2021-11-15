@@ -135,7 +135,7 @@ halyard:
 EOF
 
 ############################################
-##### Deploy the Spinnaker using Helm
+##### Deploy the Spinnaker chart using Helm
 ############################################
 helm install -n default cd stable/spinnaker -f spinnaker-config.yaml \
            --version 2.0.0-rc9 --timeout 10m0s --wait
@@ -146,9 +146,38 @@ export DECK_POD=$(kubectl get pods --namespace default -l "cluster=spin-deck" \
 
 kubectl port-forward --namespace default $DECK_POD 8080:9000 >> /dev/null &
 
+############################################
+##### Building the Docker image
+############################################
 
 
 
+#-------------Create your source code repository-----------------
+gsutil -m cp -r gs://spls/gsp114/sample-app.tar .
+mkdir sample-app
+# Unpack the source code
+tar xvf sample-app.tar -C ./sample-app
+cd sample-app
+
+git config --global user.email "$(gcloud config get-value core/account)"
+git config --global user.name "student 88f19ede"
+
+# Make the initial commit to the source code repository
+git init
+git add .
+
+git commit -m "Initial commit"
+
+# Create a repository to host our code:
+gcloud source repos create sample-app
+git config credential.helper gcloud.sh
+
+# Add your newly created repository as remote
+
+export PROJECT=$(gcloud info --format='value(config.project)')
+git remote add origin https://source.developers.google.com/p/$PROJECT/r/sample-app
 
 
+# Push your code to the new repository's master branch:
 
+git push origin master
