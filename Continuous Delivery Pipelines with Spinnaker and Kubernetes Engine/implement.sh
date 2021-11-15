@@ -39,3 +39,25 @@ gcloud projects add-iam-policy-binding $PROJECT \
 # Download the service account key to install Spinnaker and upload key to GKE
 gcloud iam service-accounts keys create spinnaker-sa.json \
      --iam-account $SA_EMAIL
+
+############################################
+### Set up Cloud Pub/Sub to trigger Spinnaker pipelines
+############################################
+
+# Create the Cloud Pub/Sub topic for notifications from Container Registry.
+gcloud pubsub topics create projects/$PROJECT/topics/gcr
+
+# Create a subscription that Spinnaker can read from to receive notifications of images being pushed.
+gcloud pubsub subscriptions create gcr-triggers \
+    --topic projects/${PROJECT}/topics/gcr
+
+
+# Give Spinnaker's service account permissions to read from the gcr-triggers subscription.
+
+export SA_EMAIL=$(gcloud iam service-accounts list \
+    --filter="displayName:spinnaker-account" \
+    --format='value(email)')
+gcloud beta pubsub subscriptions add-iam-policy-binding gcr-triggers \
+    --role roles/pubsub.subscriber --member serviceAccount:$SA_EMAIL
+
+    
