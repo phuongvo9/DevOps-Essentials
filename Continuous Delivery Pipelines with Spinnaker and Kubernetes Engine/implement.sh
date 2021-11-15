@@ -133,3 +133,22 @@ halyard:
           --project $PROJECT \
           --message-format GCR
 EOF
+
+############################################
+##### Deploy the Spinnaker using Helm
+############################################
+helm install -n default cd stable/spinnaker -f spinnaker-config.yaml \
+           --version 2.0.0-rc9 --timeout 10m0s --wait
+
+# set up port forwarding to Spinnaker from Cloud Shell (8080)
+export DECK_POD=$(kubectl get pods --namespace default -l "cluster=spin-deck" \
+    -o jsonpath="{.items[0].metadata.name}")
+
+kubectl port-forward --namespace default $DECK_POD 8080:9000 >> /dev/null &
+
+
+
+
+
+
+
