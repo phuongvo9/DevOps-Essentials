@@ -38,3 +38,24 @@ cat cloudbuild.yaml
 
 #start a Cloud Build using cloudbuild.yaml as the build configuration file
 gcloud builds submit --config cloudbuild.yaml .
+
+
+
+### Building and Testing Containers with a build configuration file and Cloud Build
+
+
+cd ~/ak8s/Cloud_Build/b
+
+cat cloudbuild.yaml
+
+    steps:
+    - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/quickstart-image', '.' ]
+    - name: 'gcr.io/$PROJECT_ID/quickstart-image'
+    args: ['fail']
+    images:
+    - 'gcr.io/$PROJECT_ID/quickstart-image'
+
+# start a Cloud Build using cloudbuild.yaml as the build configuration file
+
+echo $?
