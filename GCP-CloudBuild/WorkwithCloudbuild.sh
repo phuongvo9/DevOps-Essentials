@@ -1,8 +1,9 @@
 nano quickstart.sh
 
-#!/bin/sh
-echo "Hello, world! The time is $(date)."
+    #!/bin/sh
+    echo "Hello, world! The time is $(date)."
 
+nano Dockerfile
     nano Dockerfile
     FROM alpine
     COPY quickstart.sh /
