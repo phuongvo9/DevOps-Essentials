@@ -1,0 +1,5 @@
+- name: ensure install pip
+    apt: 
+        name: python-pip
+        state: installed
+        
