@@ -14,3 +14,5 @@ kubectl get deployment
 
 # Generate deployment YAML (-o yaml) - Do not create it (--dry-run=client)
 kubectl create deployment nginx --image=nginx --dry-run=client -o yaml
+# Generate deployment YAML to file (-o yaml) - Do not create it (--dry-run=client)
+kubectl create deployment nginx --image=nginx --dry-run=client -o yaml > my-deployment.yaml
