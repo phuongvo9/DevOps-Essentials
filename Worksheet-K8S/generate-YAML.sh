@@ -16,3 +16,6 @@ kubectl get deployment
 kubectl create deployment nginx --image=nginx --dry-run=client -o yaml
 # Generate deployment YAML to file (-o yaml) - Do not create it (--dry-run=client)
 kubectl create deployment nginx --image=nginx --dry-run=client -o yaml > my-deployment.yaml
+
+# Specify replicas to create deployment with five replicas - Do not create it - print yaml to standard output
+kubectl create deployment nginx --image=nginx --replicas=4 --dry-run=client -o yaml
