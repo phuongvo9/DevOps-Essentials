@@ -62,6 +62,6 @@ if __name__ == "__main__":
     if COLOR not in color_codes:
         print("Color not supported. Received '" + COLOR + "' expected one of " + SUPPORTED_COLORS)
         exit(1)
-
+# Flask run 8080
     # Run Flask Application
     app.run(host="0.0.0.0", port=8080)
