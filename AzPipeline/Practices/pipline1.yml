@@ -1,0 +1,34 @@
+trigger:
+  branches:
+    include:
+    - dev
+  path:
+    exclude:
+    -README.md
+
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- 
+  stage: Validate Infrastructure
+  displayname: Validate Infrastructure
+  jobs:
+  -
+    job: validate_infrastructure
+    steps:
+      - task: AzureResourceManagerTemplateDeployment@3
+        inputs: 
+          deploymentScope: 'Resource Group'
+          azureResourceManagerConnection: 'HELLO'
+          subscriptionId: '12321-324234-123123-234234-234234'
+          action: 'Create or Update resource group'
+          resourceGroupName: 'Infra_Team_CK'
+          templatedLocation: 'LinkedTemplate'
+          deploymentMode: 'Validation'
+
+
+
+
+
