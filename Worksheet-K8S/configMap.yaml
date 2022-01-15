@@ -5,3 +5,6 @@ metadata:
 spec:
   - image: ubuntu
     name: ubuntu
+    commmand:
+      - "sleep"
+      - "1200"
