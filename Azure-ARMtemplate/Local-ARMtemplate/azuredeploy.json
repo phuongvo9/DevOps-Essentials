@@ -1,10 +1,25 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "storageAccountType": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage account type"
+            },
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_ZRS",
+                "Premium_LRS"
+            ],
+            "defaultValue": "Standard_LRS"
+        }
+    },
     "functions": [],
     "variables": {},
-    "resources": [{
+    "resources": [
+    {
         "name": "storageacc190322",
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2021-04-01",
@@ -14,9 +29,18 @@
         "location": "[resourceGroup().location]",
         "kind": "StorageV2",
         "sku": {
-            "name": "Standard_LRS",
+            "name": "[parameters('storageAccountType')]",
             "tier": "Standard"
+        },
+        "properties":{
+            "supportsHttpsTrafficOnly": true
         }
-    }],
-    "outputs": {}
+    }
+    ],
+    "outputs": {
+        "storageEndpoint": {
+            "type": "object",
+            "value": "[reference('storageacc190322').primaryEndpoints]"
+        }
+    }
 }
