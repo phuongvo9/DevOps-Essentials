@@ -18,8 +18,12 @@ fi
 ## Set $HOME as default if there is no directory
 ##
 mkdir -p $directory
-grep -- "$1" "$input_file"> "$directory/${container}_reports.csv"
+if grep -- "$container" "$input_file"> "$directory/${container}_reports.csv"; then
+    echo Report created.
+    echo Wrote report $directory/$1.csv
+    exit 0
+else
+    echo There was a error happened!
+    exit 1
+fi
 
-echo Report created.
-
-echo Wrote report $directory/$1.csv
