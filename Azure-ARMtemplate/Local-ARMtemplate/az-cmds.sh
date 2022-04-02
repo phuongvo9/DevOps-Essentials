@@ -20,7 +20,7 @@ $deploymentName="blanktemplate-"+"$today"
 
 my_resource_group='learn-bd92f45e-7000-4712-b9be-1ae12bd1ed9c'
 #deploymentName='blanktemplate-19032022'
-deploymentName='addstorage1903'
+deploymentName='addstorage1903_2'
 templateFile='azuredeploy.json'
 # To deploy to a resource group
 
