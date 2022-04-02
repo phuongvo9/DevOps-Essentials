@@ -7,3 +7,5 @@ mkdir -p $directory
 grep $1 shipments.csv > $directory/$1.csv
 
 echo Report created.
+
+echo Wrote report $directory/$1.csv
