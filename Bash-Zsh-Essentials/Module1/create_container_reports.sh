@@ -26,4 +26,4 @@ else
     echo There was a error happened!
     exit 1
 fi
-
+echo completed!
