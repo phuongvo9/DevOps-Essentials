@@ -4,6 +4,6 @@
 directory=reports
 mkdir -p $directory
 
-grep H9 shipments.csv > $directory/H9.csv
+grep $1 shipments.csv > $directory/$1.csv
 
 echo Report created.
