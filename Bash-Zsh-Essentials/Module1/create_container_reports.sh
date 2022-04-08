@@ -27,3 +27,4 @@ else
     exit 1
 fi
 echo completed!
+exit 0
