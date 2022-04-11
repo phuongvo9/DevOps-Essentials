@@ -18,3 +18,4 @@ $directory="$2"
 mkdir -p $directory
 grep -- "$container" ./shipments.csv > "$directory/${container}_reports.csv"
 echo report created
+exit 0
