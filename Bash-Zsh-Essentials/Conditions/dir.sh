@@ -7,4 +7,11 @@ read DIR
 if [[ -e $DIR ]]; then
     echo "$DIR already exists"
     exit 1
+else
+    if [[ -w $PWD ]]; then
+        mkdir $DIR
+        echo "Successfully created the directory $DIR"
+    else
+        echo "You don't have the permisison to write in $PWD"
+    fi
 fi
