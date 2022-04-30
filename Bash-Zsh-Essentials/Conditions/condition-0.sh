@@ -13,3 +13,13 @@ else echo "Your value is acceptable"
 fi
 
 declare -p days
+
+echo "Please enter a day in a week: "
+declare -i dayweek
+read dayweek
+if ((dayweek > 7 || dayweek < 2)); then
+    echo "Please enter the correct day in  a week!"
+    exit 1
+else echo "Yes, today is $dayweek"
+fi
+
