@@ -15,3 +15,4 @@ else
         echo "You don't have the permisison to write in $PWD"
     fi
 fi
+exit 
