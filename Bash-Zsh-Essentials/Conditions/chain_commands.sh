@@ -9,3 +9,8 @@ echo "Hello" ; echo "We did say hello"
 which apache2 && apache2 -v
 
 which docker && echo "docker is installed" || echo "docker is not installed"
+
+
+# ---
+
+# cmd1 | { cmd2 ; cmd3 ; }if cmd1 's success, execute block of code in { }
