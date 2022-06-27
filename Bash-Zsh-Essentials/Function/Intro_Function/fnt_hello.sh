@@ -7,3 +7,5 @@ function hello(){
 }
 
 hello
+
+# to call function hello: just `hello` not `hello()`
