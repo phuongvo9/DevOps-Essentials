@@ -1,0 +1,19 @@
+{
+    "first_name": "John",
+    "last_name": "Smith",
+    "things_carried": [
+      "apples",
+      "hat",
+      "harmonica"
+    ],
+    "children": [
+      {
+        "first_name": "Bobby Sue",
+        "last_name": "Smith"
+      },
+      {
+        "first_name": "John Jr",
+        "last_name": "Smith"
+      }
+    ]
+  }

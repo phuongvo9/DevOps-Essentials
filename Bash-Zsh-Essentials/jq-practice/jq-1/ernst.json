@@ -1,0 +1,32 @@
+[
+    {
+      "firstname": "Alexander",
+      "lastname": "Smith",
+      "middlename": "Johnson",
+      "birthyear": 1918,
+      "deathyear": 1955,
+      "gender": "M",
+      "city": "Madison",
+      "state": "Wisconsin"
+    },
+    {
+      "firstname": "Lucy Jo Mary",
+      "lastname": "Carrie-Paulson",
+      "middlename": null,
+      "birthyear": 1967,
+      "deathyear": null,
+      "gender": "F",
+      "city": "Omaha",
+      "state": "Nebraska"
+    },
+    {
+      "firstname": "Jeremiah",
+      "lastname": "Springfield, Jr.",
+      "middlename": "Jebediah",
+      "birthyear": 1942,
+      "deathyear": 2003,
+      "gender": "M",
+      "city": "Kalamazoo",
+      "state": "Michigan"
+    }
+  ]
