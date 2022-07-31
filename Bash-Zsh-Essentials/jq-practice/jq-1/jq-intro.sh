@@ -14,3 +14,5 @@ EOF
 cat joni-ernst.json | jq '.terms[].url'
 
 cat joni-ernst.json | jq '.terms[] .url'
+
+
