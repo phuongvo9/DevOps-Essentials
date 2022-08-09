@@ -1,0 +1,397 @@
+[
+  {
+    "sha": "cff5336ec71b6fee396a95bb0e4bea365e0cd1e8",
+    "node_id": "C_kwDOAE3WVdoAKGNmZjUzMzZlYzcxYjZmZWUzOTZhOTViYjBlNGJlYTM2NWUwY2QxZTg",
+    "commit": {
+      "author": {
+        "name": "Mattias Wadman",
+        "email": "mattias.wadman@gmail.com",
+        "date": "2021-06-09T14:02:22Z"
+      },
+      "committer": {
+        "name": "Nico Williams",
+        "email": "nico@cryptonector.com",
+        "date": "2022-05-26T21:04:32Z"
+      },
+      "message": "docs: Document repeat(exp)",
+      "tree": {
+        "sha": "d67d5542df1f16d1a48e1fb75749f60482cd874b",
+        "url": "https://api.github.com/repos/stedolan/jq/git/trees/d67d5542df1f16d1a48e1fb75749f60482cd874b"
+      },
+      "url": "https://api.github.com/repos/stedolan/jq/git/commits/cff5336ec71b6fee396a95bb0e4bea365e0cd1e8",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/stedolan/jq/commits/cff5336ec71b6fee396a95bb0e4bea365e0cd1e8",
+    "html_url": "https://github.com/stedolan/jq/commit/cff5336ec71b6fee396a95bb0e4bea365e0cd1e8",
+    "comments_url": "https://api.github.com/repos/stedolan/jq/commits/cff5336ec71b6fee396a95bb0e4bea365e0cd1e8/comments",
+    "author": {
+      "login": "wader",
+      "id": 185566,
+      "node_id": "MDQ6VXNlcjE4NTU2Ng==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/185566?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/wader",
+      "html_url": "https://github.com/wader",
+      "followers_url": "https://api.github.com/users/wader/followers",
+      "following_url": "https://api.github.com/users/wader/following{/other_user}",
+      "gists_url": "https://api.github.com/users/wader/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/wader/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/wader/subscriptions",
+      "organizations_url": "https://api.github.com/users/wader/orgs",
+      "repos_url": "https://api.github.com/users/wader/repos",
+      "events_url": "https://api.github.com/users/wader/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/wader/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "nicowilliams",
+      "id": 604851,
+      "node_id": "MDQ6VXNlcjYwNDg1MQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/604851?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nicowilliams",
+      "html_url": "https://github.com/nicowilliams",
+      "followers_url": "https://api.github.com/users/nicowilliams/followers",
+      "following_url": "https://api.github.com/users/nicowilliams/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nicowilliams/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nicowilliams/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nicowilliams/subscriptions",
+      "organizations_url": "https://api.github.com/users/nicowilliams/orgs",
+      "repos_url": "https://api.github.com/users/nicowilliams/repos",
+      "events_url": "https://api.github.com/users/nicowilliams/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nicowilliams/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
+        "url": "https://api.github.com/repos/stedolan/jq/commits/f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
+        "html_url": "https://github.com/stedolan/jq/commit/f2ad9517c72f6267ae317639ab56bbfd4a8653d4"
+      }
+    ]
+  },
+  {
+    "sha": "f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
+    "node_id": "C_kwDOAE3WVdoAKGYyYWQ5NTE3YzcyZjYyNjdhZTMxNzYzOWFiNTZiYmZkNGE4NjUzZDQ",
+    "commit": {
+      "author": {
+        "name": "Mattias Wadman",
+        "email": "mattias.wadman@gmail.com",
+        "date": "2022-01-07T10:08:58Z"
+      },
+      "committer": {
+        "name": "Nico Williams",
+        "email": "nico@cryptonector.com",
+        "date": "2022-05-26T21:02:50Z"
+      },
+      "message": "Mention -n in IO-section and for input/inputs",
+      "tree": {
+        "sha": "e210b1e24fdc1d7b5b3368dff59931a2169d29f9",
+        "url": "https://api.github.com/repos/stedolan/jq/git/trees/e210b1e24fdc1d7b5b3368dff59931a2169d29f9"
+      },
+      "url": "https://api.github.com/repos/stedolan/jq/git/commits/f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/stedolan/jq/commits/f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
+    "html_url": "https://github.com/stedolan/jq/commit/f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
+    "comments_url": "https://api.github.com/repos/stedolan/jq/commits/f2ad9517c72f6267ae317639ab56bbfd4a8653d4/comments",
+    "author": {
+      "login": "wader",
+      "id": 185566,
+      "node_id": "MDQ6VXNlcjE4NTU2Ng==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/185566?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/wader",
+      "html_url": "https://github.com/wader",
+      "followers_url": "https://api.github.com/users/wader/followers",
+      "following_url": "https://api.github.com/users/wader/following{/other_user}",
+      "gists_url": "https://api.github.com/users/wader/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/wader/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/wader/subscriptions",
+      "organizations_url": "https://api.github.com/users/wader/orgs",
+      "repos_url": "https://api.github.com/users/wader/repos",
+      "events_url": "https://api.github.com/users/wader/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/wader/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "nicowilliams",
+      "id": 604851,
+      "node_id": "MDQ6VXNlcjYwNDg1MQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/604851?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nicowilliams",
+      "html_url": "https://github.com/nicowilliams",
+      "followers_url": "https://api.github.com/users/nicowilliams/followers",
+      "following_url": "https://api.github.com/users/nicowilliams/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nicowilliams/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nicowilliams/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nicowilliams/subscriptions",
+      "organizations_url": "https://api.github.com/users/nicowilliams/orgs",
+      "repos_url": "https://api.github.com/users/nicowilliams/repos",
+      "events_url": "https://api.github.com/users/nicowilliams/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nicowilliams/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c4d39c4d22f2b12225ca1b311708f7e084ad9ff8",
+        "url": "https://api.github.com/repos/stedolan/jq/commits/c4d39c4d22f2b12225ca1b311708f7e084ad9ff8",
+        "html_url": "https://github.com/stedolan/jq/commit/c4d39c4d22f2b12225ca1b311708f7e084ad9ff8"
+      }
+    ]
+  },
+  {
+    "sha": "c4d39c4d22f2b12225ca1b311708f7e084ad9ff8",
+    "node_id": "C_kwDOAE3WVdoAKGM0ZDM5YzRkMjJmMmIxMjIyNWNhMWIzMTE3MDhmN2UwODRhZDlmZjg",
+    "commit": {
+      "author": {
+        "name": "Tomas Halman",
+        "email": "thalman@redhat.com",
+        "date": "2022-01-20T09:15:50Z"
+      },
+      "committer": {
+        "name": "Nico Williams",
+        "email": "nico@cryptonector.com",
+        "date": "2022-05-26T21:02:10Z"
+      },
+      "message": "Fix iterration problem for non decimal string\n\nWhen the string transformation to number failed, all following\ntransformation failed too.\n\nThis happend because status in decNumberFromString function is\nupdated just in error case. Reusing the DEC_CONTEXT that failed\nbefore results into error even if the string is valid number.",
+      "tree": {
+        "sha": "1baa3b1df15380d0170ca16d21f9c9b9218ece92",
+        "url": "https://api.github.com/repos/stedolan/jq/git/trees/1baa3b1df15380d0170ca16d21f9c9b9218ece92"
+      },
+      "url": "https://api.github.com/repos/stedolan/jq/git/commits/c4d39c4d22f2b12225ca1b311708f7e084ad9ff8",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/stedolan/jq/commits/c4d39c4d22f2b12225ca1b311708f7e084ad9ff8",
+    "html_url": "https://github.com/stedolan/jq/commit/c4d39c4d22f2b12225ca1b311708f7e084ad9ff8",
+    "comments_url": "https://api.github.com/repos/stedolan/jq/commits/c4d39c4d22f2b12225ca1b311708f7e084ad9ff8/comments",
+    "author": {
+      "login": "thalman",
+      "id": 1316416,
+      "node_id": "MDQ6VXNlcjEzMTY0MTY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1316416?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/thalman",
+      "html_url": "https://github.com/thalman",
+      "followers_url": "https://api.github.com/users/thalman/followers",
+      "following_url": "https://api.github.com/users/thalman/following{/other_user}",
+      "gists_url": "https://api.github.com/users/thalman/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/thalman/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/thalman/subscriptions",
+      "organizations_url": "https://api.github.com/users/thalman/orgs",
+      "repos_url": "https://api.github.com/users/thalman/repos",
+      "events_url": "https://api.github.com/users/thalman/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/thalman/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "nicowilliams",
+      "id": 604851,
+      "node_id": "MDQ6VXNlcjYwNDg1MQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/604851?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nicowilliams",
+      "html_url": "https://github.com/nicowilliams",
+      "followers_url": "https://api.github.com/users/nicowilliams/followers",
+      "following_url": "https://api.github.com/users/nicowilliams/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nicowilliams/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nicowilliams/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nicowilliams/subscriptions",
+      "organizations_url": "https://api.github.com/users/nicowilliams/orgs",
+      "repos_url": "https://api.github.com/users/nicowilliams/repos",
+      "events_url": "https://api.github.com/users/nicowilliams/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nicowilliams/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "174db0f93552bdb551ae1f3c5c64744df0ad8e2f",
+        "url": "https://api.github.com/repos/stedolan/jq/commits/174db0f93552bdb551ae1f3c5c64744df0ad8e2f",
+        "html_url": "https://github.com/stedolan/jq/commit/174db0f93552bdb551ae1f3c5c64744df0ad8e2f"
+      }
+    ]
+  },
+  {
+    "sha": "174db0f93552bdb551ae1f3c5c64744df0ad8e2f",
+    "node_id": "C_kwDOAE3WVdoAKDE3NGRiMGY5MzU1MmJkYjU1MWFlMWYzYzVjNjQ3NDRkZjBhZDhlMmY",
+    "commit": {
+      "author": {
+        "name": "Naïm Favier",
+        "email": "n@monade.li",
+        "date": "2021-05-26T11:47:40Z"
+      },
+      "committer": {
+        "name": "Nico Williams",
+        "email": "nico@cryptonector.com",
+        "date": "2022-05-26T21:01:25Z"
+      },
+      "message": "docs: point to Libera.Chat instead of Freenode",
+      "tree": {
+        "sha": "70d25c5e341177365d7d0ecaa5d9e03887426f74",
+        "url": "https://api.github.com/repos/stedolan/jq/git/trees/70d25c5e341177365d7d0ecaa5d9e03887426f74"
+      },
+      "url": "https://api.github.com/repos/stedolan/jq/git/commits/174db0f93552bdb551ae1f3c5c64744df0ad8e2f",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/stedolan/jq/commits/174db0f93552bdb551ae1f3c5c64744df0ad8e2f",
+    "html_url": "https://github.com/stedolan/jq/commit/174db0f93552bdb551ae1f3c5c64744df0ad8e2f",
+    "comments_url": "https://api.github.com/repos/stedolan/jq/commits/174db0f93552bdb551ae1f3c5c64744df0ad8e2f/comments",
+    "author": {
+      "login": "ncfavier",
+      "id": 4323933,
+      "node_id": "MDQ6VXNlcjQzMjM5MzM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4323933?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ncfavier",
+      "html_url": "https://github.com/ncfavier",
+      "followers_url": "https://api.github.com/users/ncfavier/followers",
+      "following_url": "https://api.github.com/users/ncfavier/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ncfavier/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ncfavier/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ncfavier/subscriptions",
+      "organizations_url": "https://api.github.com/users/ncfavier/orgs",
+      "repos_url": "https://api.github.com/users/ncfavier/repos",
+      "events_url": "https://api.github.com/users/ncfavier/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ncfavier/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "nicowilliams",
+      "id": 604851,
+      "node_id": "MDQ6VXNlcjYwNDg1MQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/604851?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nicowilliams",
+      "html_url": "https://github.com/nicowilliams",
+      "followers_url": "https://api.github.com/users/nicowilliams/followers",
+      "following_url": "https://api.github.com/users/nicowilliams/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nicowilliams/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nicowilliams/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nicowilliams/subscriptions",
+      "organizations_url": "https://api.github.com/users/nicowilliams/orgs",
+      "repos_url": "https://api.github.com/users/nicowilliams/repos",
+      "events_url": "https://api.github.com/users/nicowilliams/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nicowilliams/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "29cf77977ef52eec708982b19bf9d2ec17443337",
+        "url": "https://api.github.com/repos/stedolan/jq/commits/29cf77977ef52eec708982b19bf9d2ec17443337",
+        "html_url": "https://github.com/stedolan/jq/commit/29cf77977ef52eec708982b19bf9d2ec17443337"
+      }
+    ]
+  },
+  {
+    "sha": "29cf77977ef52eec708982b19bf9d2ec17443337",
+    "node_id": "C_kwDOAE3WVdoAKDI5Y2Y3Nzk3N2VmNTJlZWM3MDg5ODJiMTliZjlkMmVjMTc0NDMzMzc",
+    "commit": {
+      "author": {
+        "name": "Lukas Lansky",
+        "email": "lukas.lansky@suse.com",
+        "date": "2021-09-29T17:06:06Z"
+      },
+      "committer": {
+        "name": "Nico Williams",
+        "email": "nico@cryptonector.com",
+        "date": "2022-05-26T20:53:59Z"
+      },
+      "message": "Missing \"va_end\" call. This was found by running the cppcheck static analysis where it shows as error.",
+      "tree": {
+        "sha": "ad85a29391d93e8984b207c374e419613a31e05e",
+        "url": "https://api.github.com/repos/stedolan/jq/git/trees/ad85a29391d93e8984b207c374e419613a31e05e"
+      },
+      "url": "https://api.github.com/repos/stedolan/jq/git/commits/29cf77977ef52eec708982b19bf9d2ec17443337",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/stedolan/jq/commits/29cf77977ef52eec708982b19bf9d2ec17443337",
+    "html_url": "https://github.com/stedolan/jq/commit/29cf77977ef52eec708982b19bf9d2ec17443337",
+    "comments_url": "https://api.github.com/repos/stedolan/jq/commits/29cf77977ef52eec708982b19bf9d2ec17443337/comments",
+    "author": {
+      "login": "llansky3",
+      "id": 72455614,
+      "node_id": "MDQ6VXNlcjcyNDU1NjE0",
+      "avatar_url": "https://avatars.githubusercontent.com/u/72455614?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/llansky3",
+      "html_url": "https://github.com/llansky3",
+      "followers_url": "https://api.github.com/users/llansky3/followers",
+      "following_url": "https://api.github.com/users/llansky3/following{/other_user}",
+      "gists_url": "https://api.github.com/users/llansky3/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/llansky3/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/llansky3/subscriptions",
+      "organizations_url": "https://api.github.com/users/llansky3/orgs",
+      "repos_url": "https://api.github.com/users/llansky3/repos",
+      "events_url": "https://api.github.com/users/llansky3/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/llansky3/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "nicowilliams",
+      "id": 604851,
+      "node_id": "MDQ6VXNlcjYwNDg1MQ==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/604851?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nicowilliams",
+      "html_url": "https://github.com/nicowilliams",
+      "followers_url": "https://api.github.com/users/nicowilliams/followers",
+      "following_url": "https://api.github.com/users/nicowilliams/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nicowilliams/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nicowilliams/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nicowilliams/subscriptions",
+      "organizations_url": "https://api.github.com/users/nicowilliams/orgs",
+      "repos_url": "https://api.github.com/users/nicowilliams/repos",
+      "events_url": "https://api.github.com/users/nicowilliams/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nicowilliams/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "55e6e2c21829bd866bd4b18ee254b05c9020320a",
+        "url": "https://api.github.com/repos/stedolan/jq/commits/55e6e2c21829bd866bd4b18ee254b05c9020320a",
+        "html_url": "https://github.com/stedolan/jq/commit/55e6e2c21829bd866bd4b18ee254b05c9020320a"
+      }
+    ]
+  }
+]
