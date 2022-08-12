@@ -12,8 +12,8 @@ def secrets():
                 "password" : "ec2-user@123"
             },
             "awsAccessKeys" : {
-                "aws_access_key_id": "LIVEARET45LJASDF9EWR",
-                "aws_secret_access_key": "4GAbEcDDDeyYRNO4WBrnYeWgVa-YTDrV6GIJMqQabc"
+                "aws_access_key_id": "...",
+                "aws_secret_access_key": "..."
             }       
         }
     }
