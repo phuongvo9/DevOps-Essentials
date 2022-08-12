@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+#interate and get only 1 property in object: tittle
 cat openlib.json | jq .docs[] | jq {title}
 # output?
 
