@@ -7,3 +7,8 @@ jq 'range(2;4)'
 #OUTPUT:
     #2
     #3
+jq '[range(2;5)]'
+#OUTPUT: [2,3,4]
+
+jq '[range(0;10;3)]'
+#OUTPUT: [0,3,6,9]
