@@ -1,5 +1,6 @@
 # Admission Controllers 
 ## What is Admission controllers
+Kubernetes admission controllers are a way to intercept and modify requests to the Kubernetes API server before they are persisted to etcd. 
 An admission controller is a piece of code that intercepts requests to the Kubernetes API server prior to persistence of the object, but after the request is authenticated and authorized.
 
 Admission controllers may be validating, mutating, or both.
@@ -12,3 +13,40 @@ In 2nd phase, validating admission controllers are run.
 
 If any of the controllers in either phase reject the request, the entire request is rejected immediately and an error is returned to the end-use
 
+`MutatingWebhookConfiguration` and `ValidatingWebhookConfiguration` are two types of admission controllers that enable you to modify or validate resources as they are created or updated.
+
+### MutatingWebhookConfiguration
+`MutatingWebhookConfiguration` is an admission controller that modifies resources as they are created or updated. When a request is received by the Kubernetes API server, it is sent to the MutatingWebhookConfiguration admission controller, which invokes a webhook to modify the request. The modified request is then sent back to the Kubernetes API server and persisted to etcd.
+
+Here's an example of a MutatingWebhookConfiguration that appends a label to all newly created or updated Pods:
+
+```yaml
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: pod-labeler
+webhooks:
+- name: label-pods.jackvo9.medium
+  clientConfig:
+    service:
+      name: pod-labeler-svc
+      namespace: kube-system
+      path: /label-pods
+  rules:
+  - apiGroups:
+    - ""
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - pods
+  namespaceSelector:
+    matchLabels:
+      app: pod-labeler
+  sideEffects: None
+  timeoutSeconds: 5
+  admissionReviewVersions: ["v1beta1", "v1"]
+
+```
