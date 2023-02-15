@@ -8,8 +8,9 @@ Admission controllers may be validating, mutating, or both.
 Admission controllers limit requests to create, delete, modify objects. Admission controllers can not block requests to read
 
 ## Admission control phases 
-In 1st phase, mutating admission controllers are run
-In 2nd phase, validating admission controllers are run.
+1. In 1st phase, **mutating** admission controllers are run
+
+2. In 2nd phase, **validating** admission controllers are run.
 
 If any of the controllers in either phase reject the request, the entire request is rejected immediately and an error is returned to the end-use
 
