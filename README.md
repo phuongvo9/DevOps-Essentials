@@ -9,3 +9,6 @@
 
 # Reference
 https://www.cloudskillsboost.google/
+
+# EKSWORKSHOP
+https://archive.eksworkshop.com/intermediate/260_weave_flux/deploymentmanifests/
