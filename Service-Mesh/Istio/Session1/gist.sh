@@ -89,7 +89,7 @@ kubectl describe pod \
     --selector app=alpine
 
 kubectl label namespace default \
-    istio-injection-
+    istio-injection- # remove istio-injection namespace label 
 
 kubectl rollout restart \
     deployment alpine
