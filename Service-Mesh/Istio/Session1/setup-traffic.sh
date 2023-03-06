@@ -1,13 +1,19 @@
+# Source: https://gist.github.com/9b80db17492cee756871228d739da463
 
 ########################
 # Installing Istio CLI #
 ########################
 
+# Go to https://github.com/istio/istio/releases
+# Pick a release
+# Download and unpack the release, and move it to a directory set in the `PATH`
+
+# NOTE: If you already have `istioctl` from before, make sure to upgrade it to v1.5+ if it's older than that
 
 ###############################
 # Creating Kubernetes Cluster #
 ###############################
-# Ref
+
 # Docker for Desktop: https://gist.github.com/33fd661da626a167687ecb4267700588
 # minikube: https://gist.github.com/e7ad0cc633831147d2dbcd4fe2a97a74
 # GKE: https://gist.github.com/a260c0812459a57b46b9ea807a26173e
@@ -89,7 +95,7 @@ kubectl describe pod \
     --selector app=alpine
 
 kubectl label namespace default \
-    istio-injection- # remove istio-injection namespace label 
+    istio-injection-
 
 kubectl rollout restart \
     deployment alpine
