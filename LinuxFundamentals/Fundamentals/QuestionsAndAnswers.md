@@ -275,3 +275,34 @@ ssh user@host
 Where user is the username of the account you want to connect to and host is the hostname or IP address of the system.
 
 
+# You just installed a new Peripheral Component Interconnect (PCI) network card and Linux did not immediately recognize it. What tool do you need to enable the kernel module to run the card?
+
+The tool you need to enable the kernel module to run the card is called modprobe.
+
+To use modprobe, open a terminal window and type the following command:
+
+```
+modprobe <module_name>
+```
+
+Where <module_name> is the name of the kernel module for your network card.
+
+For example, if your network card is an Intel 82579LM, the module name would be ixgbe.
+
+Once you have typed the command, press Enter.
+
+The kernel module will be loaded and your network card should be recognized by Linux.
+
+If you are having trouble getting your network card to work, you can try using the following command to get more information about the module:
+
+```
+modinfo <module_name>
+```
+
+This will display information about the module, such as its version, its dependencies, and its configuration options.
+
+You can also use the following command to see a list of all of the kernel modules that are currently loaded:
+
+```
+lsmod
+```
