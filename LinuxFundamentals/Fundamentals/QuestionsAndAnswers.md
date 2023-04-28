@@ -156,7 +156,7 @@ man ss
 
 
 # What file contains the system and user created groups in Linux?
-
+`/etc/groups`
 # After you update the system repository index (using apt update), what would you execute to apply the updates on Ubuntu?
 
 After you update the system repository index using `apt update`, you can apply the updates using `apt upgrade`.
@@ -190,4 +190,88 @@ sudo apt-get install --only-recommends
 ```
 
 It is important to keep your Ubuntu system up to date with the latest security updates. These updates can fix security vulnerabilities that could be exploited by attackers.
+
+# On a Debian/Ubuntu system, how would you delete a package along with any configuration settings?
+
+To delete a package along with any configuration settings on a Debian/Ubuntu system, you can use the `apt-get purge` command. The `apt-get purge` command is used to remove a package and all of its configuration files.
+
+To use the `apt-get purge` command, open a terminal window and type the following command:
+
+```
+sudo apt-get purge package_name
+```
+
+For example, to remove the package `firefox`, you would type the following command:
+
+```
+sudo apt-get purge firefox
+```
+
+This command will remove the `firefox` package and all of its configuration files. You may be prompted to enter your password.
+
+If you want to see a list of the packages that will be removed, use the following command:
+
+```
+sudo apt-get purge -s package_name
+```
+
+If you want to remove only the package and not its configuration files, use the following command:
+
+```
+sudo apt-get remove package_name
+```
+
+It is important to note that the `apt-get purge` command will remove all of the configuration files for the package. If you want to keep some of the configuration files, you can use the `dpkg-reconfigure` command to save the configuration files before removing the package.
+
+To use the `dpkg-reconfigure` command, open a terminal window and type the following command:
+
+```
+sudo dpkg-reconfigure package_name
+```
+
+For example, to save the configuration files for the `firefox` package, you would type the following command:
+
+```
+sudo dpkg-reconfigure firefox
+```
+
+This command will open a configuration dialog for the `firefox` package. You can use this dialog to save the configuration files for the package.
+
+Once you have saved the configuration files, you can remove the package using the `apt-get purge` command.
+
+
+# When using Debian or Red Hat systems, which package must you install and configure to allow for incoming Secure Shell (SSH) connections to Linux systems?
+
+To allow for incoming Secure Shell (SSH) connections to Debian or Red Hat systems, you must install and configure the `openssh-server` package.
+
+On Debian or Ubuntu systems, you can install the openssh-server package using the following command:
+
+```
+sudo apt-get install openssh-server
+```
+
+On Red Hat or Fedora systems, you can install the openssh-server package using the following command:
+
+```
+sudo yum install openssh-server
+```
+
+Once the openssh-server package is installed, you need to configure it. The default configuration is sufficient for most use cases. However, you may need to make changes to the configuration if you are using a firewall or if you want to restrict access to the SSH server.
+
+To configure the openssh-server, you can edit the `/etc/ssh/sshd_config` file. This file contains a number of settings that control the behavior of the SSH server. For more information on the settings in this file, you can consult the openssh-server documentation.
+
+Once you have configured the openssh-server, you can start the SSH server using the following command:
+
+```
+sudo systemctl start sshd
+```
+
+The SSH server will now listen for incoming connections on port 22. You can connect to the SSH server using the following command:
+
+```
+ssh user@host
+```
+
+Where user is the username of the account you want to connect to and host is the hostname or IP address of the system.
+
 
