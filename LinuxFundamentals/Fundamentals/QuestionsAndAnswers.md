@@ -277,9 +277,9 @@ Where user is the username of the account you want to connect to and host is the
 
 # You just installed a new Peripheral Component Interconnect (PCI) network card and Linux did not immediately recognize it. What tool do you need to enable the kernel module to run the card?
 
-The tool you need to enable the kernel module to run the card is called modprobe.
+The tool you need to enable the kernel module to run the card is called `modprobe`.
 
-To use modprobe, open a terminal window and type the following command:
+To use `modprobe`, open a terminal window and type the following command:
 
 ```
 modprobe <module_name>
@@ -287,7 +287,7 @@ modprobe <module_name>
 
 Where <module_name> is the name of the kernel module for your network card.
 
-For example, if your network card is an Intel 82579LM, the module name would be ixgbe.
+For example, if your network card is an Intel 82579LM, the module name would be `ixgbe`.
 
 Once you have typed the command, press Enter.
 
@@ -306,3 +306,73 @@ You can also use the following command to see a list of all of the kernel module
 ```
 lsmod
 ```
+# What command allows you to set a priority value for a process when it launches?
+`nice` is the command that allows you to set a priority value for a process when it launches
+
+```
+nice <command>
+```
+
+Where <command> is the command you want to run with a higher or lower priority.
+
+For example, to run the ls command with a higher priority, you would type the following command:
+
+```
+nice ls
+```
+
+This will cause the ls command to run with a higher priority than other processes.
+
+You can also use the nice command to set a specific priority value for a process. To do this, use the following syntax:
+
+```
+nice -n <priority> <command>
+```
+
+Where <priority> is a number between -20 and 19. **A lower number means a higher priority.**
+
+For example, to run the `ls` command with a priority of -10, you would type the following command:
+
+```
+nice -n -10 ls
+```
+
+This will cause the `ls` command to run with a lower priority than other processes.
+
+More example:
+
+1. To launch a process with a lower priority value (higher priority), use the following command:
+
+   ```
+   nice -n -10 command
+   ```
+
+   Replace `command` with the command you want to run (ex: ls, cd, cp, mkdir,...) . This will launch the command with a priority value of -10, which is higher than the default priority value of 0.
+
+2. To launch a process with a higher priority value (lower priority), use the following command:
+
+   ```
+   nice -n 10 command
+   ```
+
+   This will launch the command with a priority value of 10, which is lower than the default priority value of 0.
+
+3. To change the priority value of a running process, use the following command:
+
+   ```
+   renice -n -10 -p pid
+   ```
+
+   Replace `pid` with the process ID of the process you want to modify. This will change the priority value of the process to -10.
+
+   Note that you need to be a superuser or the owner of the process to modify its priority value.
+
+4. To display the priority values of running processes, use the following command:
+
+   ```
+   ps -eo pid,ni,comm
+   ```
+
+   This will display the process ID, priority value, and command name of all running processes.
+
+   The `ni` field shows the nice value (priority value) of the process. The lower the value, the higher the priority. The default value is 0.
