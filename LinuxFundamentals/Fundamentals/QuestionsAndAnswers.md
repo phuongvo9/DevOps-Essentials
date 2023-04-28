@@ -47,7 +47,7 @@ export EDITOR=nano
 
 # On most modern Linux systems, what file contains the list of users and encrypted versions of their passwords?
 
-/etc/passwd
+`/etc/passwd`
 
 # What command would you use to encrypt a single file?
 
@@ -91,4 +91,65 @@ To decrypt, you can use
 
 ```bash
 gpg --decrypt myfile.txt.gpg
+```
+
+
+# What command dumps socket connection statistics?
+
+The command to dump socket connection statistics is `ss`. The `ss` command is a command-line tool that provides socket statistics and displays various information based on various protocols. It can display port stats, TCP, UDP, RAW, and more.
+
+Here are some examples of how to use the `ss` command to dump socket connection statistics:
+
+* To dump all TCP connections:
+
+```
+ss -t
+```
+
+* To dump all UDP connections:
+
+```
+ss -u
+```
+
+* To dump all RAW connections:
+
+```
+ss -w
+```
+
+* To dump all Unix domain sockets:
+
+```
+ss -x
+```
+
+* To dump all connections:
+
+```
+ss
+```
+
+* To dump connections on a specific port:
+
+```
+ss -t -p 80
+```
+
+* To dump connections to a specific host:
+
+```
+ss -t -n google.com
+```
+
+* To dump connections in a specific state:
+
+```
+ss -t -s state=ESTABLISHED
+```
+
+For more information on the `ss` command, you can use the `man` command:
+
+```
+man ss
 ```
