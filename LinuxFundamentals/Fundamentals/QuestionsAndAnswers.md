@@ -147,9 +147,47 @@ ss -t -n google.com
 ```
 ss -t -s state=ESTABLISHED
 ```
-
+![img.png](ss/img.png)
 For more information on the `ss` command, you can use the `man` command:
 
 ```
 man ss
 ```
+
+
+# What file contains the system and user created groups in Linux?
+
+# After you update the system repository index (using apt update), what would you execute to apply the updates on Ubuntu?
+
+After you update the system repository index using `apt update`, you can apply the updates using `apt upgrade`.
+
+The `apt upgrade` command is used to install the newest versions of all packages currently installed on the Ubuntu system. In other words, get security updates for your machine.
+
+To run the `apt upgrade` command, open a terminal window and type the following command:
+
+```
+sudo apt upgrade
+```
+
+This command will check for updates and install them if they are available. You may be prompted to enter your password.
+
+If you want to see a list of the updates that will be installed, use the following command:
+
+```
+sudo apt upgrade -s
+```
+
+If you want to install only the security updates, use the following command:
+
+```
+sudo apt-get install --only-upgrade
+```
+
+If you want to install only the recommended updates, use the following command:
+
+```
+sudo apt-get install --only-recommends
+```
+
+It is important to keep your Ubuntu system up to date with the latest security updates. These updates can fix security vulnerabilities that could be exploited by attackers.
+
