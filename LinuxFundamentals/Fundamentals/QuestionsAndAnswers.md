@@ -376,3 +376,33 @@ More example:
    This will display the process ID, priority value, and command name of all running processes.
 
    The `ni` field shows the nice value (priority value) of the process. The lower the value, the higher the priority. The default value is 0.
+
+# Using systemd tools, how would you change the current target to allow only command-line access?
+
+To change the current target to allow only command-line access using systemd tools, you can use the `systemctl` command to switch to the `multi-user.target`:
+
+1. Type the following command to switch to the `multi-user.target`:
+
+   ```
+   sudo systemctl isolate multi-user.target
+   ```
+
+   This will stop all graphical user interface (GUI) services and switch to the command-line interface (CLI) mode, which allows only command-line access.
+
+   Note that this command will not stop the `graphical.target` service permanently. The next time you reboot your system, it will start in the default target, which is usually `graphical.target`.
+
+2. To set the `multi-user.target` as the default target, use the following command:
+
+   ```
+   sudo systemctl set-default multi-user.target
+   ```
+
+   This will set the `multi-user.target` as the default target, so your system will always start in command-line mode unless you manually switch to the graphical mode.
+
+   If you want to switch back to the graphical mode, you can use the following command:
+
+   ```
+   sudo systemctl isolate graphical.target
+   ```
+
+   This will start all GUI services and switch to the graphical mode, allowing you to use a graphical desktop environment.
