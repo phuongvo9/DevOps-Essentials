@@ -16,7 +16,7 @@ This command creates a new user account without any password. To set a password 
 sudo passwd jackvo
 ```
 
-Modifying User Accounts
+## Modifying User Accounts
 
 To modify an existing user account in Linux, we can use the `usermod` command. For example, to change the home directory for the user "jackvo," we can type the following command:
 
@@ -26,7 +26,7 @@ sudo usermod -d /new/home/directory jackvo
 
 This command changes the home directory for the user "jackvo" to "/new/home/directory." Similarly, we can use the `usermod` command to modify other parameters of a user account, such as the login shell, the user ID (UID), and the group ID (GID).
 
-Deleting User Accounts
+## Deleting User Accounts
 
 To delete an existing user account in Linux, we can use the `userdel` command. For example, to delete the user account "jackvo," we can type the following command:
 
@@ -50,7 +50,7 @@ Similarly, to set the GID for the user "jackvo" to 1001, we can type the followi
 sudo usermod -g 1001 jackvo
 ```
 
-Managing Groups
+## Managing Groups
 
 Groups are a collection of users with the same permissions and privileges. In Linux, we can use the `groupadd`, `groupmod`, and `groupdel` commands to manage groups. For example, to create a new group named "developers," we can type the following command:
 
